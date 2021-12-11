@@ -1,9 +1,13 @@
 import './App.css';
+import ComponentA from './components/testA/componentA'
+import ComponentC from './components/testB/componentC'
 
 function App() {
   return (
     <div className="App">
-      <button onClick={noneOfFunction}>연결할 함수 없음</button>
+      <ComponentA/>
+      <ComponentC/>
+      {/* <button onClick={noneOfFunction}>연결할 함수 없음</button> */}
     </div>
   );
 }

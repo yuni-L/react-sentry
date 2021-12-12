@@ -4,12 +4,15 @@ import { Integrations } from "@sentry/tracing";
 
 const sentry = {
   init: () => {
+    console.log('process.env', process.env)
     // init
     process.env.NODE_ENV === "development" &&
       Sentry.init({
         dsn: `${process.env.REACT_APP_DSN}`,
         integrations: [new Integrations.BrowserTracing()],
         tracesSampleRate: 1,
+        release: process.env.REACT_APP_VERSION,
+        environment: process.env.NODE_ENV
       });
   },
   captureError: (err) => {

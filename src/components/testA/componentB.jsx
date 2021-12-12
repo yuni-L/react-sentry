@@ -4,14 +4,14 @@ import sentry from '../../utils/sentry'
 
 function componentB() {
   const BB = () => {
-    안나옴1;
-    // try {
-    //   a;
-    // } catch(err) {
-    //   sentry.captureError(err);
-    //   // sentry.captureMessage('errtest');
-    //   console.log('err', err);
-    // }
+    // 안나옴1;
+    try {
+      a;
+    } catch(err) {
+      sentry.captureError(err);
+      // sentry.captureMessage('errtest');
+      console.log('err', err);
+    }
   }
   return (
     <div className="componentB">

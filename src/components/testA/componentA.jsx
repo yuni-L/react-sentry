@@ -4,6 +4,7 @@ import ComponentB from './componentB'
 import sentry from '../../utils/sentry'
 
 function componentA() {
+  console.log('linked github repository commit test');
   // console.log('sentry', sentry)
   sentry.init();
   // Sentry.init({

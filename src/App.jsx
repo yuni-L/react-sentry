@@ -1,13 +1,18 @@
 import './App.css';
-import ComponentA from './components/testA/componentA'
-import ComponentC from './components/testB/componentC'
+import sentry from './utils/sentry';
 
 function App() {
+  const errorToSentry = () => {
+    try {
+      throw new Error ('센트리로 에러 보내기');
+    } catch(error) {
+      sentry.error(error);
+      sentry.message('임의의 에러 후, 보내지는 메세지');
+    }
+  }
   return (
     <div className="App">
-      <ComponentA/>
-      <ComponentC/>
-      {/* <button onClick={noneOfFunction}>연결할 함수 없음</button> */}
+      <button onClick={() => { errorToSentry(); }}>센트리 에러 보내기</button>
     </div>
   );
 }

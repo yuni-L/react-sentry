@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://browser.sentry-cdn.com/6.16.1/bundle.tracing.min.js"
+    integrity="sha384-hySah00SvKME+98UjlzyfP852AXjPPTh2vgJu26gFcwTlZ02/zm82SINaKTKwIX2" crossorigin="anonymous">
+    </script>
+  <script>
+    // Sentry.init({
+      // dsn: "CDN",
+      // integrations: [new Sentry.Integrations.BrowserTracing()],
+    // });
+  </script>
+</head>
+<script>
+  function test2() {
+    console.log('test2');
+    try {
+      throw new Error('CDN 테스트')
+    } catch (error) {
+      Sentry.captureException(error);
+    }
+  }
+</script>
+
+<body>
+  <div onclick="test2()">테스트</div>
+</body>
+
+</html>
